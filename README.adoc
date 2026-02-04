@@ -1,0 +1,105 @@
+= i18n Maven Plugin
+
+Handle internationalization and localization easily with the i18n Maven Plugin.
+
+Convert your Excel sheets to resource files. Your input file `i18n.xls` will be converted to different output resource files.
+
+== Output Formats
+
+=== Properties
+
+----
+customer.properties
+customer_en.properties
+----
+
+[source,properties]
+----
+#Generated file customer.properties
+CUSTOMER=Customer
+FIRSTNAME=Firstname
+LASTNAME=Lastname
+----
+
+=== JSON
+
+----
+customer.json
+customer_en.json
+----
+
+[source,json]
+----
+{
+  "CUSTOMER": "Customer",
+  "FIRSTNAME": "Firstname",
+  "LASTNAME": "Lastname"
+}
+----
+
+=== XML
+
+----
+customer.xml
+customer_en.xml
+----
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <comment>Generated file customer.xml</comment>
+  <entry key="CUSTOMER">Customer</entry>
+  <entry key="FIRSTNAME">Firstname</entry>
+  <entry key="LASTNAME">Lastname</entry>
+</properties>
+----
+
+== Usage
+
+[source,xml]
+----
+<plugin>
+    <groupId>com.dataliquid.maven</groupId>
+    <artifactId>i18n-maven-plugin</artifactId>
+    <version>1.0.0</version>
+    <executions>
+        <execution>
+            <id>i18n</id>
+            <phase>generate-resources</phase>
+            <goals>
+                <goal>i18n</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <localeCell>C1</localeCell>
+        <keyCell>B4</keyCell>
+        <files>
+            <file>src/main/resources/i18n.xls</file>
+        </files>
+        <outputFormat>
+            <format>properties</format>
+            <format>json</format>
+            <format>xml</format>
+        </outputFormat>
+    </configuration>
+</plugin>
+----
+
+== Bug Tracker
+
+Have a bug or a feature request? Please create an issue on GitHub.
+
+https://github.com/dataliquid/i18n-maven-plugin/issues
+
+== Contributing
+
+Fork the repository and submit pull requests.
+
+== License
+
+Copyright 2014 Ben Asmussen, 2024 Dataliquid GmbH
+
+Licensed under the Apache License, Version 2.0.

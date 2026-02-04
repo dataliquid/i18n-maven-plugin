@@ -1,0 +1,162 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.dataliquid</groupId>
+		<artifactId>parent-oss</artifactId>
+		<version>2.4.0</version>
+	</parent>
+
+	<groupId>com.dataliquid.maven</groupId>
+	<artifactId>i18n-maven-plugin</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>maven-plugin</packaging>
+
+	<name>i18n Maven Plugin</name>
+	<description>Handle internationalization and localization easily - convert Excel sheets to resource files (Properties, JSON, XML)</description>
+	<url>https://github.com/dataliquid/i18n-maven-plugin</url>
+
+	<properties>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+
+		<!-- Dependency Versions -->
+		<maven-plugin-api.version>3.9.9</maven-plugin-api.version>
+		<maven-plugin-annotations.version>3.15.1</maven-plugin-annotations.version>
+		<maven-plugin-plugin.version>3.15.1</maven-plugin-plugin.version>
+		<poi.version>5.3.0</poi.version>
+		<commons-lang3.version>3.17.0</commons-lang3.version>
+		<commons-text.version>1.13.0</commons-text.version>
+		<commons-io.version>2.18.0</commons-io.version>
+		<gson.version>2.11.0</gson.version>
+		<junit.version>5.11.4</junit.version>
+
+		<!-- Plugin Versions -->
+		<maven-project-info-reports-plugin.version>3.8.0</maven-project-info-reports-plugin.version>
+		<maven-site-plugin.version>3.21.0</maven-site-plugin.version>
+	</properties>
+
+	<scm>
+		<url>https://github.com/dataliquid/i18n-maven-plugin</url>
+		<connection>scm:git:git://github.com/dataliquid/i18n-maven-plugin.git</connection>
+		<developerConnection>scm:git:ssh://github.com:dataliquid/i18n-maven-plugin.git</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/dataliquid/i18n-maven-plugin/issues</url>
+	</issueManagement>
+
+	<dependencies>
+		<!-- Maven Plugin Dependencies -->
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>${maven-plugin-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugin-tools</groupId>
+			<artifactId>maven-plugin-annotations</artifactId>
+			<version>${maven-plugin-annotations.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Excel Processing -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+
+		<!-- Utilities -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>${commons-text.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+		</dependency>
+
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>${maven-plugin-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>mojo-descriptor</id>
+						<goals>
+							<goal>descriptor</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>help-goal</id>
+						<goals>
+							<goal>helpmojo</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>${maven-site-plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>${maven-plugin-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<failOnError>false</failOnError>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>javadoc</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>${maven-project-info-reports-plugin.version}</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+</project>

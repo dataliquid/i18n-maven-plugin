@@ -1,0 +1,64 @@
+ ------
+ Introduction
+ ------
+ Hervé Boutemy, Simone "Simo" Tripodi
+ ------
+ 2012-06-28
+ ------
+
+~~ Licensed to the Apache Software Foundation (ASF) under one
+~~ or more contributor license agreements.  See the NOTICE file
+~~ distributed with this work for additional information
+~~ regarding copyright ownership.  The ASF licenses this file
+~~ to you under the Apache License, Version 2.0 (the
+~~ "License"); you may not use this file except in compliance
+~~ with the License.  You may obtain a copy of the License at
+~~
+~~   http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing,
+~~ software distributed under the License is distributed on an
+~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~~ KIND, either express or implied.  See the License for the
+~~ specific language governing permissions and limitations
+~~ under the License.
+
+~~ NOTE: For help with the syntax of this file, see:
+~~ http://maven.apache.org/doxia/references/apt-format.html
+
+Welcome to ${project.name}!
+
+ Handle internationalization and localization easily with the i18n Maven Plugin. Convert your Excel sheets to resource files. Your input file i18n.xls will be converted to different output resource files. 
+ To get started and see how the plugin could be used, check out this project documentation!  
+
+[./images/screenshot.png]
+
+* Location
+
++-----+ 
+src/main/i18n/i18n.xls
++-----+
+
+* Output
+
+** Files
+
++-----+ 
+customer.properties
+customer_en.properties
+invoice.properties
+invoice_en.properties
++-----+
+
+** Content
+
++-----+
+#Generated file customer.properties
+#Sat May 10 01:56:34 CEST 2014
+CUSTOMER=Customer
+FIRSTNAME=Firstname
+LASTNAME=Lastname
++-----+
+
+
+
